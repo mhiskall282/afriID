@@ -1,7 +1,7 @@
 # afriID
 afriID is a decentralized identity verification platform designed to help refugees and individuals verify their identities securely using passports, national IDs, and biometrics. By leveraging Zero-Knowledge Proofs (ZKPs), afriID ensures privacy, security, and trust while allowing users to prove their identity without revealing sensitive personal information.
 
-![kuzadevs](https://github.com/user-attachments/assets/25830fd3-4a8e-4378-8fbb-bd682a080221)
+![afriID](https://github.com/user-attachments/assets/d12cd2f8-9f82-410e-a57c-dccc2e48b511)
 
 # Background
 Millions of people, especially refugees and displaced individuals, face challenges in proving their identity due to loss of documents, lack of centralized records, and security concerns. Traditional identity verification systems are often inefficient, prone to fraud, and expose users to privacy risks. afriID addresses these issues by creating a blockchain-based, privacy-preserving verification system. 
