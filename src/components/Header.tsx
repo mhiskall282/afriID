@@ -20,6 +20,8 @@ export const Header = () => {
             <a href="/" className="text-gray-700 dark:text-gray-200 hover:text-blue-500">Home</a>
             <a href="/register" className="text-gray-700 dark:text-gray-200 hover:text-blue-500">Register</a>
             <a href="/dashboard" className="text-gray-700 dark:text-gray-200 hover:text-blue-500">Dashboard</a>
+            <a href="/documentation" className="block text-gray-700 dark:text-gray-200 hover:text-blue-500">Documentation</a>
+
             <button
               onClick={toggleTheme}
               className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
@@ -44,6 +46,7 @@ export const Header = () => {
             <a href="/" className="block text-gray-700 dark:text-gray-200 hover:text-blue-500">Home</a>
             <a href="/register" className="block text-gray-700 dark:text-gray-200 hover:text-blue-500">Register</a>
             <a href="/dashboard" className="block text-gray-700 dark:text-gray-200 hover:text-blue-500">Dashboard</a>
+            <a href="/documentation" className="block text-gray-700 dark:text-gray-200 hover:text-blue-500">Documentation</a>
           </div>
         )}
       </nav>
