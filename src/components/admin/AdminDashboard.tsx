@@ -31,12 +31,12 @@ export const AdminDashboard = () => {
               Manage and review digital ID applications
             </p>
           </div>
-          <div className="flex gap-4">
+          <div className="flex gap-4 lex flex-col sm:flex-row sm:gap-4 gap-2 items-center sm:items-start">
             <button className="flex items-center gap-2 px-4 py-2 border rounded-lg hover:bg-gray-50 dark:border-gray-600 dark:hover:bg-gray-700">
               <Filter className="w-4 h-4" />
               Filter
             </button>
-            <button className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+            <button className="flex items-center gap-2 w-full sm:w-auto px-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
               <Users className="w-4 h-4" />
               Bulk Actions
             </button>
