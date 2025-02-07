@@ -1,5 +1,19 @@
+// src/components/Header.tsx
 import React, { useState } from 'react';
-import { Menu, X, Sun, Moon, ChevronDown, Shield, Users, Wallet, Book, Settings, HelpCircle, Bell } from 'lucide-react';
+import {
+  Menu,
+  X,
+  Sun,
+  Moon,
+  ChevronDown,
+  Shield,
+  Users,
+  Wallet,
+  Book,
+  Settings,
+  HelpCircle,
+  Bell,
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../hooks/useTheme';
 
@@ -60,7 +74,7 @@ export const Header = () => {
     <header className="fixed w-full bg-white dark:bg-gray-900 shadow-md z-50">
       <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          {/* Left side: AfriID title as a link */}
+          {/* Left side: AfriID title as a clickable link */}
           <div className="flex items-center">
             <Link to="/">
               <span className="text-2xl font-bold bg-gradient-to-r from-yellow-500 via-green-500 to-blue-500 text-transparent bg-clip-text">
@@ -148,9 +162,7 @@ export const Header = () => {
               <div className="relative">
                 <button
                   onClick={() =>
-                    setActiveMenu(
-                      activeMenu === 'notifications' ? null : 'notifications'
-                    )
+                    setActiveMenu(activeMenu === 'notifications' ? null : 'notifications')
                   }
                   className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 relative"
                 >
@@ -198,17 +210,19 @@ export const Header = () => {
                 {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
               </button>
 
-              {/* removed sign in link it is now empty  */}
-              <a
-                href="/login"
-                className="text-gray-700 dark:text-gray-200 hover:text-blue-500"
+              {/* Sign In and Sign Up links */}
+              <Link
+                to="/login"
+                className="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition-colors"
               >
-               
-              </a>
-
-              <button className="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition-colors">
                 Sign In
-              </button>
+              </Link>
+              {/* <Link
+                to="/signup"
+                className="bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition-colors"
+              >
+                Sign Up
+              </Link> */}
             </div>
 
             {/* Mobile menu toggle */}
@@ -280,9 +294,18 @@ export const Header = () => {
               Contact
             </a>
             <div className="pt-4 border-t dark:border-gray-700">
-              <button className="w-full bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition-colors">
-                Connect Wallet
-              </button>
+              <Link
+                to="/login"
+                className="w-full block bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition-colors text-center"
+              >
+                Sign In
+              </Link>
+              <Link
+                to="/signup"
+                className="w-full block bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition-colors text-center mt-2"
+              >
+                Sign Up
+              </Link>
             </div>
           </div>
         )}
@@ -290,6 +313,7 @@ export const Header = () => {
     </header>
   );
 };
+
 
 
 
