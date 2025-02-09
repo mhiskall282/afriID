@@ -106,6 +106,7 @@ export const RegistrationForm = () => {
               Open Camera
             </button>
           </div>
+          
           <div className="text-center p-8 border-2 border-dashed rounded-lg">
             <Fingerprint className="w-16 h-16 mx-auto mb-4 text-gray-400" />
             <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
