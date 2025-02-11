@@ -100,3 +100,6 @@ const fakeSignUpAPI = (email: string, password: string) => {
     }, 1000);
   });
 };
+
+
+
