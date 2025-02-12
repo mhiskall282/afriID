@@ -48,7 +48,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [],
@@ -61,7 +62,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     },
     {
       "inputs": [
@@ -160,7 +162,8 @@
         }
       ],
       "stateMutability": "view",
-      "type": "function"
+      "type": "function",
+      "constant": true
     }
   ],
   "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"digitalIdentities\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"fullName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"dateOfBirth\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"email\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"phoneNumber\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"photoDirectory\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"fingerprintHash\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"documentDirectory\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"digitalInformationCount\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_fullName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"_dateOfBirth\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"_email\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_phoneNumber\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_photoDirectory\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_fingerprintHash\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_documentDirectory\",\"type\":\"string\"}],\"name\":\"registerIdentity\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_address\",\"type\":\"address\"}],\"name\":\"viewIdentity\",\"outputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"fullName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"dateOfBirth\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"email\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"phoneNumber\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"photoDirectory\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"fingerprintHash\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"documentDirectory\",\"type\":\"string\"}],\"internalType\":\"struct Afriid.PersonalInformation\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"registerIdentity(string,uint256,string,string,string,string,string)\":{\"details\":\"this function takes passed parameters from the front end, processes and stores them to the blockchain\",\"params\":{\"_dateOfBirth\":\"date of birth in the digital data formatted as a timestamp\",\"_documentDirectory\":\"directory passed as a string\",\"_email\":\"email in the digital data\",\"_fingerprintHash\":\"converted fingerprint received as a hash inform of a string\",\"_fullName\":\"full naame in the digital data\",\"_phoneNumber\":\"phone number parameter in the digital identity\",\"_photoDirectory\":\"stores the directory of the uploaded image as a string\"}},\"viewIdentity(address)\":{\"params\":{\"_address\":\"address of the mapped digital identity\"},\"returns\":{\"_0\":\"PersonalInformation returns the personal information as a struct\"}}},\"stateVariables\":{\"digitalIdentities\":{\"details\":\"public visibility will allow it to be displayed automatically as a getter function\"}},\"title\":\"AfriId Contract\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"digitalIdentities(address)\":{\"notice\":\"mapping to store the structure data of the digital identity to the wallet address\"},\"digitalInformationCount()\":{\"notice\":\"stores the count of digital data entries as integer\"},\"registerIdentity(string,uint256,string,string,string,string,string)\":{\"notice\":\"takes data and save it to the blockchain\"},\"viewIdentity(address)\":{\"notice\":\"retrieves a person digital details by their addresses\"}},\"notice\":\"this contract helps in the registration, storage and retrieval of digital data\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/afriid.sol\":\"Afriid\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/afriid.sol\":{\"keccak256\":\"0x7f01d328f8eafc3bd5a78de8acfac0077a138b96fce77ddb7a22c4df6bd6b95f\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://f9b1cd5240695c79041c78d4d7621d9e8f6bcc9c6e2d77edf36b9e87c09d31a6\",\"dweb:/ipfs/QmYfnWTesSsacnzoECpbzMUKUHZJyhvSCtCQFysvjnyGpw\"]}},\"version\":1}",
@@ -7790,9 +7793,17 @@
     "name": "solc",
     "version": "0.8.13+commit.abaa5c0e.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x8DD87a45502ea46f8E75e674D4bE778227069019",
+      "transactionHash": "0xb4f17f262e80b49819284dd173c0c0a88911a5bd274887168c9b892ac1a068e4"
+    }
+  },
   "schemaVersion": "3.4.16",
-  "updatedAt": "2025-02-09T22:01:22.345Z",
+  "updatedAt": "2025-02-12T20:44:17.398Z",
+  "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
     "methods": {

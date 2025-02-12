@@ -1,89 +1,91 @@
 // src/App.tsx
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Header } from './components/Header';
-import { Hero } from './components/Hero';
-import { RegistrationForm } from './components/forms/RegistrationForm';
-import { VerificationPage } from './components/verification/VerificationPage';
-import { AdminDashboard } from './components/admin/AdminDashboard';
-import { UserDashboard } from './components/dashboard/UserDashboard';
-import { AIAgentDashboard } from './components/ai/AIAgentDashboard';
-import { SmartContractDashboard } from './components/blockchain/SmartContractDashboard';
-import { TokenDashboard } from './components/blockchain/TokenDashboard';
-import { GovernancePortal } from './components/governance/GovernancePortal';
-import { Documentation } from './components/docs/Documentation';
-import { SignInForm } from './components/forms/SignInForm';
-import { SignUpForm } from './components/forms/SignUpForm';
-import { Footer } from './components/Footer';
-
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+import { Header } from "./components/Header";
+import { Hero } from "./components/Hero";
+import { RegistrationForm } from "./components/forms/RegistrationForm";
+import { VerificationPage } from "./components/verification/VerificationPage";
+import { AdminDashboard } from "./components/admin/AdminDashboard";
+import { UserDashboard } from "./components/dashboard/UserDashboard";
+import { AIAgentDashboard } from "./components/ai/AIAgentDashboard";
+import { SmartContractDashboard } from "./components/blockchain/SmartContractDashboard";
+import { TokenDashboard } from "./components/blockchain/TokenDashboard";
+import { GovernancePortal } from "./components/governance/GovernancePortal";
+import { Documentation } from "./components/docs/Documentation";
+import { SignInForm } from "./components/forms/SignInForm";
+import { SignUpForm } from "./components/forms/SignUpForm";
+import { Footer } from "./components/Footer";
+import { getInformationCount } from "./utils/Provider";
 function HomePage() {
+  console.log(getInformationCount());
   return (
     <>
-      <Hero />
-      <section className="py-16 bg-white dark:bg-gray-800">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Register for Digital ID
-          </h2>
-          <RegistrationForm />
-        </div>
-      </section>
-      <section className="py-16">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Verify Identity
-          </h2>
-          <VerificationPage />
-        </div>
-      </section>
-      <section className="py-16 bg-white dark:bg-gray-800">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            AI Agent Network
-          </h2>
-          <AIAgentDashboard />
-        </div>
-      </section>
-      <section className="py-16">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Smart Contract Infrastructure
-          </h2>
-          <SmartContractDashboard />
-        </div>
-      </section>
-      <section className="py-16 bg-white dark:bg-gray-800">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Token Economics
-          </h2>
-          <TokenDashboard />
-        </div>
-      </section>
-      <section className="py-16">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Governance
-          </h2>
-          <GovernancePortal />
-        </div>
-      </section>
-      <section className="py-16 bg-white dark:bg-gray-800">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            User Dashboard
-          </h2>
-          <UserDashboard />
-        </div>
-      </section>
-      <section className="py-16 bg-white dark:bg-gray-800">
-        <div className="container mx-auto px-6">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Admin Dashboard
-          </h2>
-          <AdminDashboard />
-        </div>
-      </section>
+      <ThirdwebProvider>
+        <Hero />
+        <section className="py-16 bg-white dark:bg-gray-800">
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl font-bold text-center mb-12">
+              Register for Digital ID
+            </h2>
+            <RegistrationForm />
+          </div>
+        </section>
+        <section className="py-16">
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl font-bold text-center mb-12">
+              Verify Identity
+            </h2>
+            <VerificationPage />
+          </div>
+        </section>
+        <section className="py-16 bg-white dark:bg-gray-800">
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl font-bold text-center mb-12">
+              AI Agent Network
+            </h2>
+            <AIAgentDashboard />
+          </div>
+        </section>
+        <section className="py-16">
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl font-bold text-center mb-12">
+              Smart Contract Infrastructure
+            </h2>
+            <SmartContractDashboard />
+          </div>
+        </section>
+        <section className="py-16 bg-white dark:bg-gray-800">
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl font-bold text-center mb-12">
+              Token Economics
+            </h2>
+            <TokenDashboard />
+          </div>
+        </section>
+        <section className="py-16">
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl font-bold text-center mb-12">Governance</h2>
+            <GovernancePortal />
+          </div>
+        </section>
+        <section className="py-16 bg-white dark:bg-gray-800">
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl font-bold text-center mb-12">
+              User Dashboard
+            </h2>
+            <UserDashboard />
+          </div>
+        </section>
+        <section className="py-16 bg-white dark:bg-gray-800">
+          <div className="container mx-auto px-6">
+            <h2 className="text-3xl font-bold text-center mb-12">
+              Admin Dashboard
+            </h2>
+            <AdminDashboard />
+          </div>
+        </section>
+      </ThirdwebProvider>
     </>
   );
 }
@@ -120,11 +122,6 @@ function App() {
 }
 
 export default App;
-
-
-
-
-
 
 // import React from 'react';
 // import { Header } from './components/Header';
@@ -207,7 +204,3 @@ export default App;
 // }
 
 // export default App;
-
-
-
-
