@@ -1,5 +1,5 @@
 // src/components/Header.tsx
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   Menu,
   X,
@@ -13,57 +13,58 @@ import {
   Settings,
   HelpCircle,
   Bell,
-} from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { useTheme } from '../hooks/useTheme';
+} from "lucide-react";
+import { Link } from "react-router-dom";
+import { useTheme } from "../hooks/useTheme";
+import { connectWallet } from "../utils/Provider";
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const { theme, toggleTheme } = useTheme();
   const [notifications] = useState([
-    { id: 1, text: 'New verification request', time: '2 min ago' },
-    { id: 2, text: 'Governance proposal update', time: '1 hour ago' },
-    { id: 3, text: 'Security alert', time: '3 hours ago' },
+    { id: 1, text: "New verification request", time: "2 min ago" },
+    { id: 2, text: "Governance proposal update", time: "1 hour ago" },
+    { id: 3, text: "Security alert", time: "3 hours ago" },
   ]);
 
   const menus = [
     {
-      title: 'Products',
+      title: "Products",
       items: [
         {
-          name: 'Digital Identity',
-          description: 'Secure blockchain identity solutions',
+          name: "Digital Identity",
+          description: "Secure blockchain identity solutions",
           icon: Shield,
         },
         {
-          name: 'Verification',
-          description: 'AI-powered identity verification',
+          name: "Verification",
+          description: "AI-powered identity verification",
           icon: Users,
         },
         {
-          name: 'Enterprise',
-          description: 'Solutions for businesses',
+          name: "Enterprise",
+          description: "Solutions for businesses",
           icon: Wallet,
         },
       ],
     },
     {
-      title: 'Resources',
+      title: "Resources",
       items: [
         {
-          name: 'Documentation',
-          description: 'Guides and references',
+          name: "Documentation",
+          description: "Guides and references",
           icon: Book,
         },
         {
-          name: 'API Reference',
-          description: 'Technical documentation',
+          name: "API Reference",
+          description: "Technical documentation",
           icon: Settings,
         },
         {
-          name: 'Support',
-          description: '24/7 customer support',
+          name: "Support",
+          description: "24/7 customer support",
           icon: HelpCircle,
         },
       ],
@@ -104,7 +105,7 @@ export const Header = () => {
                       className="absolute left-0 mt-2 w-80 bg-white dark:bg-gray-800 rounded-xl shadow-lg ring-1 ring-black ring-opacity-5 p-2"
                     >
                       {menu.items.map((item) =>
-                        item.name === 'Documentation' ? (
+                        item.name === "Documentation" ? (
                           <Link
                             key={item.name}
                             to="/documentation"
@@ -162,7 +163,9 @@ export const Header = () => {
               <div className="relative">
                 <button
                   onClick={() =>
-                    setActiveMenu(activeMenu === 'notifications' ? null : 'notifications')
+                    setActiveMenu(
+                      activeMenu === "notifications" ? null : "notifications"
+                    )
                   }
                   className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 relative"
                 >
@@ -170,7 +173,7 @@ export const Header = () => {
                   <span className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
                 </button>
 
-                {activeMenu === 'notifications' && (
+                {activeMenu === "notifications" && (
                   <div className="absolute right-0 mt-2 w-80 bg-white dark:bg-gray-800 rounded-xl shadow-lg ring-1 ring-black ring-opacity-5 p-2">
                     <div className="px-4 py-2 border-b dark:border-gray-700">
                       <h3 className="text-sm font-medium">Notifications</h3>
@@ -207,16 +210,16 @@ export const Header = () => {
                 onClick={toggleTheme}
                 className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
               >
-                {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+                {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
               </button>
 
               {/* Sign In and Sign Up links */}
-              <Link
-                to="/login"
+              <button
+                onClick={connectWallet}
                 className="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition-colors"
               >
-                Sign In
-              </Link>
+                Connect wallet
+              </button>
               {/* <Link
                 to="/signup"
                 className="bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition-colors"
@@ -249,7 +252,7 @@ export const Header = () => {
                   {menu.title}
                   <ChevronDown
                     className={`w-4 h-4 transform transition-transform ${
-                      activeMenu === menu.title ? 'rotate-180' : ''
+                      activeMenu === menu.title ? "rotate-180" : ""
                     }`}
                   />
                 </button>
@@ -257,7 +260,7 @@ export const Header = () => {
                 {activeMenu === menu.title && (
                   <div className="pl-4 space-y-2">
                     {menu.items.map((item) =>
-                      item.name === 'Documentation' ? (
+                      item.name === "Documentation" ? (
                         <Link
                           key={item.name}
                           to="/documentation"
@@ -294,18 +297,24 @@ export const Header = () => {
               Contact
             </a>
             <div className="pt-4 border-t dark:border-gray-700">
-              <Link
+              {/* <Link
                 to="/login"
                 className="w-full block bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition-colors text-center"
               >
-                Sign In
+                Sign Inn
               </Link>
               <Link
                 to="/signup"
                 className="w-full block bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition-colors text-center mt-2"
               >
                 Sign Up
-              </Link>
+              </Link> */}
+              <button
+                onClick={connectWallet}
+                className="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition-colors"
+              >
+                Connect wallet
+              </button>
             </div>
           </div>
         )}
@@ -313,11 +322,6 @@ export const Header = () => {
     </header>
   );
 };
-
-
-
-
-
 
 // import React, { useState } from 'react';
 // import { Menu, X, Sun, Moon, ChevronDown, Shield, Users, Wallet, Book, Settings, HelpCircle, Bell } from 'lucide-react';
@@ -360,7 +364,7 @@ export const Header = () => {
 //             <span className="text-2xl font-bold bg-gradient-to-r from-yellow-500 via-green-500 to-blue-500 text-transparent bg-clip-text">
 //               AfriID
 //             </span>
-            
+
 //             <div className="hidden md:flex items-center ml-8 space-x-1">
 //               {menus.map((menu) => (
 //                 <div key={menu.title} className="relative">
@@ -372,7 +376,7 @@ export const Header = () => {
 //                     {menu.title}
 //                     <ChevronDown className="w-4 h-4 ml-1" />
 //                   </button>
-                  
+
 //                   {activeMenu === menu.title && (
 //                     <div
 //                       onMouseEnter={() => setActiveMenu(menu.title)}
@@ -400,17 +404,17 @@ export const Header = () => {
 //                   )}
 //                 </div>
 //               ))}
-              
+
 //               <a href="/pricing" className="px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg">
 //                 Pricing
 //               </a>
-              
+
 //               <a href="/contact" className="px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg">
 //                 Contact
 //               </a>
 //             </div>
 //           </div>
-          
+
 //           <div className="hidden md:flex items-center space-x-4">
 //             <div className="relative">
 //               <button
@@ -420,7 +424,7 @@ export const Header = () => {
 //                 <Bell size={20} />
 //                 <span className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
 //               </button>
-              
+
 //               {activeMenu === 'notifications' && (
 //                 <div className="absolute right-0 mt-2 w-80 bg-white dark:bg-gray-800 rounded-xl shadow-lg ring-1 ring-black ring-opacity-5 p-2">
 //                   <div className="px-4 py-2 border-b dark:border-gray-700">
@@ -450,18 +454,18 @@ export const Header = () => {
 //                 </div>
 //               )}
 //             </div>
-            
+
 //             <button
 //               onClick={toggleTheme}
 //               className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
 //             >
 //               {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
 //             </button>
-            
+
 //             <a href="/login" className="text-gray-700 dark:text-gray-200 hover:text-blue-500">
 //               Sign in
 //             </a>
-            
+
 //             <button className="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition-colors">
 //               Connect Wallet
 //             </button>
@@ -488,7 +492,7 @@ export const Header = () => {
 //                     activeMenu === menu.title ? 'rotate-180' : ''
 //                   }`} />
 //                 </button>
-                
+
 //                 {activeMenu === menu.title && (
 //                   <div className="pl-4 space-y-2">
 //                     {menu.items.map((item) => (
