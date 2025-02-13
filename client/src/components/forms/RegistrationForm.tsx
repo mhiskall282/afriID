@@ -158,6 +158,9 @@ export const RegistrationForm = () => {
             <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
               Tap the fingerprint icon to scan your fingerprint
             </p>
+             <button className="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600">
+               Start Scan
+             </button>
           </div>
         </div>
       )}
