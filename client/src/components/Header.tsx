@@ -245,10 +245,18 @@ export const Header = () => {
               >
                 {walletConnected ? "Disconnect" : "Connect Wallet"}
               </button>
+
+                {/* <Link
+                to="/signup"
+                className="bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition-colors"
+              >
+                Sign Up
+              </Link> */}
+              
             </div>
 
-            {/* Mobile menu toggle */}
-            <button
+                {/* Mobile menu toggle */}
+                <button
               onClick={() => setIsOpen(!isOpen)}
               className="md:hidden focus:outline-none ml-4"
             >
@@ -303,6 +311,42 @@ export const Header = () => {
                 )}
               </div>
             ))}
+            <a
+              href="/pricing"
+              className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+            >
+              Pricing
+            </a>
+            <a
+              href="/contact"
+              className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+            >
+              Contact
+            </a>
+            <div className="pt-4 border-t dark:border-gray-700">
+              {/* <Link
+                to="/login"
+                className="w-full block bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition-colors text-center"
+              >
+                Sign Inn
+              </Link>
+              <Link
+                to="/signup"
+                className="w-full block bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition-colors text-center mt-2"
+              >
+                Sign Up
+              </Link> */}
+              <button
+                onClick={walletConnected ? handleDisconnectWallet : handleConnectWallet}
+                className={`px-6 py-2 rounded-full transition-colors ${
+                  walletConnected
+                    ? "bg-green-500 text-white hover:bg-green-600"
+                    : "bg-blue-500 text-white hover:bg-blue-600"
+                }`}
+              >
+                {walletConnected ? "Disconnect" : "Connect Wallet"}
+              </button>
+            </div>
           </div>
         )}
       </nav>
