@@ -1,5 +1,5 @@
 // src/components/Header.tsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Menu,
   X,
@@ -16,9 +16,30 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../hooks/useTheme";
-import { connectWallet } from "../utils/Provider";
+import { connectWallet, disconnectWallet, checkWalletConnection } from "../utils/Provider";
 
 export const Header = () => {
+  const [walletConnected, setWalletConnected] = useState(false);
+
+  useEffect(() => {
+    // Check if the wallet is already connected on component mount
+    const checkConnection = async () => {
+      const isConnected = await checkWalletConnection();
+      setWalletConnected(isConnected);
+    };
+    checkConnection();
+  }, []);
+
+  const handleConnectWallet = async () => {
+    const isConnected = await connectWallet();
+    if (isConnected) setWalletConnected(true);
+  };
+
+  const handleDisconnectWallet = async () => {
+    await disconnectWallet();
+    setWalletConnected(false);
+  };
+
   const [isOpen, setIsOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const { theme, toggleTheme } = useTheme();
@@ -213,19 +234,17 @@ export const Header = () => {
                 {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
               </button>
 
-              {/* Sign In and Sign Up links */}
+              {/* Connect/Disconnect wallet button */}
               <button
-                onClick={connectWallet}
-                className="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition-colors"
+                onClick={walletConnected ? handleDisconnectWallet : handleConnectWallet}
+                className={`px-6 py-2 rounded-full transition-colors ${
+                  walletConnected
+                    ? "bg-green-500 text-white hover:bg-green-600"
+                    : "bg-blue-500 text-white hover:bg-blue-600"
+                }`}
               >
-                Connect wallet
+                {walletConnected ? "Disconnect" : "Connect Wallet"}
               </button>
-              {/* <Link
-                to="/signup"
-                className="bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition-colors"
-              >
-                Sign Up
-              </Link> */}
             </div>
 
             {/* Mobile menu toggle */}
@@ -284,44 +303,14 @@ export const Header = () => {
                 )}
               </div>
             ))}
-            <a
-              href="/pricing"
-              className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
-            >
-              Pricing
-            </a>
-            <a
-              href="/contact"
-              className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
-            >
-              Contact
-            </a>
-            <div className="pt-4 border-t dark:border-gray-700">
-              {/* <Link
-                to="/login"
-                className="w-full block bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition-colors text-center"
-              >
-                Sign Inn
-              </Link>
-              <Link
-                to="/signup"
-                className="w-full block bg-green-500 text-white px-6 py-2 rounded-full hover:bg-green-600 transition-colors text-center mt-2"
-              >
-                Sign Up
-              </Link> */}
-              <button
-                onClick={connectWallet}
-                className="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition-colors"
-              >
-                Connect wallet
-              </button>
-            </div>
           </div>
         )}
       </nav>
     </header>
   );
 };
+
+
 
 // import React, { useState } from 'react';
 // import { Menu, X, Sun, Moon, ChevronDown, Shield, Users, Wallet, Book, Settings, HelpCircle, Bell } from 'lucide-react';

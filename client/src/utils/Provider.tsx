@@ -23,6 +23,26 @@ export const connectWallet = async () => {
   }
 };
 
+
+
+export const disconnectWallet = async () => {
+  // Logic to disconnect the wallet (e.g., clearing local storage or calling a wallet API)
+  // For example:
+  if (window.ethereum) {
+    await window.ethereum.disconnect();
+  }
+};
+
+export const checkWalletConnection = async () =>{
+  if(window.ethereum){
+    const account = await window.ethereum.request({method: "eth_requestAccounts"});
+    return account.length > 0;
+
+  }
+  return false;
+};
+
+
 export const viewIdentity = async (walletAddress: string) => {
   const identity: Object = await contract.viewIdentity(walletAddress);
   return identity;
