@@ -113,6 +113,7 @@ function App() {
             />
             <Route path="/login" element={<SignInForm />} />
             <Route path="/signup" element={<SignUpForm />} />
+            <Route path="/register" element={<RegistrationForm />} />
           </Routes>
         </main>
         <Footer />
